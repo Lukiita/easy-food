@@ -1,4 +1,11 @@
 {
   "name": "pos-tech",
-  "packageManager": "yarn@4.5.0"
+  "packageManager": "yarn@4.5.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "typescript": "^5.6.2"
+  }
 }

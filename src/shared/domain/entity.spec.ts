@@ -1,0 +1,14 @@
+import { validate as uuidValidate } from 'uuid';
+import { BaseEntity } from './entity';
+
+class StubEntity extends BaseEntity { }
+
+describe('BaseEntity Unit Test', () => {
+  test('should create an entity with a valid UUID and timestamps', () => {
+    const entity = new StubEntity({});
+    expect(entity.id).toBeDefined();
+    expect(uuidValidate(entity.id)).toBe(true);
+    expect(entity.createdAt).toBeInstanceOf(Date);
+    expect(entity.updatedAt).toBeInstanceOf(Date);
+  });
+});

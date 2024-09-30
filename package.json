@@ -1,5 +1,7 @@
 {
-  "name": "pos-tech",
+  "name": "easy-food",
+  "description": "This project was created as a study exercise for the postgraduate course in Software Architecture.",
+  "version": "1.0.0",
   "packageManager": "yarn@4.5.0",
   "scripts": {
     "commit": "cz",
@@ -8,16 +10,22 @@
   },
   "config": {
     "commitizen": {
-       "path": "cz-conventional-changelog"
+      "path": "cz-conventional-changelog"
     }
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
+    "@swc/cli": "^0.4.1-nightly.20240914",
+    "@swc/core": "1.7.26",
+    "@swc/jest": "^0.2.36",
+    "@types/jest": "^29.5.13",
+    "@types/uuid": "^10",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.6",
     "jest": "^29.7.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.6.2"
   }
 }

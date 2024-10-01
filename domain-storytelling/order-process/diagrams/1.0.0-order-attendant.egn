@@ -1,0 +1,981 @@
+{
+  "domain": {
+    "name": "default",
+    "actors": {
+      "Person": "<svg viewBox=\"0 0 24 26\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z\"/><path d=\"M0 0h24v24H0z\" fill=\"none\"/></svg>",
+      "Group": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"48\" viewBox=\"0 0 24 26\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M16.5 13c-1.2 0-3.07.34-4.5 1-1.43-.67-3.3-1-4.5-1C5.33 13 1 14.08 1 16.25V19h22v-2.75c0-2.17-4.33-3.25-6.5-3.25zm-4 4.5h-10v-1.25c0-.54 2.56-1.75 5-1.75s5 1.21 5 1.75v1.25zm9 0H14v-1.25c0-.46-.2-.86-.52-1.22.88-.3 1.96-.53 3.02-.53 2.44 0 5 1.21 5 1.75v1.25zM7.5 12c1.93 0 3.5-1.57 3.5-3.5S9.43 5 7.5 5 4 6.57 4 8.5 5.57 12 7.5 12zm0-5.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 5.5c1.93 0 3.5-1.57 3.5-3.5S18.43 5 16.5 5 13 6.57 13 8.5s1.57 3.5 3.5 3.5zm0-5.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z\"/></svg>",
+      "System": "<svg viewBox=\"0 0 24 26\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20,18c1.1,0,2-0.9,2-2V6c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6v10c0,1.1,0.9,2,2,2H0v2h24v-2H20z M4,6h16v10H4V6z\"/></svg>",
+      "atendente-custom": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADpElEQVRoge2Y+0tTYRjHj8tFhZWCoXaZ27Go/oCgn4N+LrzMFPopSissFZIcbichIkunmZqYLOdq0rpBBZY5wXnZflhpOqfNTTd1aleQiijBt/eZ25x4WduO5y3aA192OHvf5/l838s5L4eiwhGOcLAWGpNp/atOfXprh17dqtMPaTu6v4HgGu7hazG0Ic25bLS161MwoE3boUerCZux4t9k0rze0Gg067S67lJ/4EuNdF9nEOKR5qeCgfdRCVH4+WUTNLx7JrqOEoGHzehezyEZwPtmhMjGhqdN6PBeE2mcG8BFm1gzoNPfJWHAwpYBeE9wbgC/mL6yZgDn+qcN4EfxDOcG8BJ6x+ISGuTcwPzZhrWnkIpzA3AwY28GDKmcGzAajXw89cMsjL6N2AkVAySHaqCt3XCECLwn4FQZwuhfJQoPAUdivKGvBWGg5K84TkMghCIeNL+81KzV+X03QJuHz18w0Ic0N2U6sy1q6ORWdW19jeXyjUpUXCZHVYoG1PTkKXrW0oZa2rtcgmu4d1OhdLWBttAH+kIOIvATsqT0weMbfvSnUqgvK2G8+p4alSvuoCtVNahYLkdMadkiFcvL8X/VrjbQFvpAX8gxJRNxdxr9xOze4pTRqkkZjey5cQggQF0FBy0ABqrCqmxUoYoGpUtwXeX+D2QoOGDx9LPnxSHI5ZTSjR8v7N28pvDvmcT4SSndAwU9smZFe030nhbYb6mUv6p9YH1Vq1T8fHtWYPe0t2ZHI99ckzLRm+lCUdyawH+QCBKcMpF1cUG3iewFE6YM/uzr3P3Wx/J8R52y7jvokfy8w3hun23gWOTsAnzMkjwuSUXDMFCswo/l7dyIl41h2YJu2fPi0UAm32tkJZlxG0d+/Ip53DNhdDIJm1gzgJdN/eoF54VnyLUvLCeikDmDj0ziCJfAGNyD9e6Uivzmces2K/BTDH0Ij/7cHxZlTVATmz0cEjxiKB4e/UGu4b0mpKIBYAh+9PHzmRS8Vwwd/GdIvJk6iRuQ0bqg4Mcke3aQWPtLlxE952B2bQ989KV0Nml4r6RJpwI3IBGqiYN7VCQM/MPXeKHAThzcrfHCxJFgDHwhDe7RxEXB54ANjObETpMG98iWEzsVsAGTmGd2ShKJwwNDv5hnCthAXwpVYc6IRKP4bOMsEnIPjmtCbWDoS6XkgRvIpGKwCae/0+VaCxiAJWADEL1plAgn0eAkMwTAoeb9nnRKGBR8OMLxn8Rv2j2GqA2pai0AAAAASUVORK5CYII=",
+      "cook2-custom": "data:image/png;base64,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",
+      "cook3-custom": "data:image/png;base64,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"
+    },
+    "workObjects": {
+      "Document": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 26\"><path fill=\"none\" d=\"M0 0h24v24H0V0z\"/><path d=\"M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z\"/></svg>",
+      "Folder": "<svg viewBox=\"0 0 24 26\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"none\" d=\"M0,0h24v24H0V0z\"/><path d=\"M9.17,6l2,2H20v10L4,18V6H9.17 M10,4H4C2.9,4,2.01,4.9,2.01,6L2,18c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V8c0-1.1-0.9-2-2-2 h-8L10,4L10,4z\"/></svg>",
+      "Call": "<svg viewBox=\"0 0 24 26\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"none\" d=\"M0,0h24v24H0V0z\"/><path d=\"M6.54,5C6.6,5.89,6.75,6.76,6.99,7.59l-1.2,1.2C5.38,7.59,5.12,6.32,5.03,5H6.54 M16.4,17.02c0.85,0.24,1.72,0.39,2.6,0.45 v1.49c-1.32-0.09-2.59-0.35-3.8-0.75L16.4,17.02 M7.5,3H4C3.45,3,3,3.45,3,4c0,9.39,7.61,17,17,17c0.55,0,1-0.45,1-1v-3.49\tc0-0.55-0.45-1-1-1c-1.24,0-2.45-0.2-3.57-0.57c-0.1-0.04-0.21-0.05-0.31-0.05c-0.26,0-0.51,0.1-0.71,0.29l-2.2,2.2 c-2.83-1.45-5.15-3.76-6.59-6.59l2.2-2.2C9.1,8.31,9.18,7.92,9.07,7.57C8.7,6.45,8.5,5.25,8.5,4C8.5,3.45,8.05,3,7.5,3L7.5,3z\"/></svg>",
+      "Email": "<svg viewBox=\"0 0 24 26\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"none\" d=\"M0,0h24v24H0V0z\"/><path fill-opacity=\"0.9\" d=\"M12,1.95c-5.52,0-10,4.48-10,10s4.48,10,10,10h5v-2h-5c-4.34,0-8-3.66-8-8s3.66-8,8-8s8,3.66,8,8v1.43 c0,0.79-0.71,1.57-1.5,1.57S17,14.17,17,13.38v-1.43c0-2.76-2.24-5-5-5s-5,2.24-5,5s2.24,5,5,5c1.38,0,2.64-0.56,3.54-1.47 c0.65,0.89,1.77,1.47,2.96,1.47c1.97,0,3.5-1.6,3.5-3.57v-1.43C22,6.43,17.52,1.95,12,1.95z M12,14.95c-1.66,0-3-1.34-3-3 s1.34-3,3-3s3,1.34,3,3S13.66,14.95,12,14.95z\"/></svg>",
+      "Conversation": "<svg height=\"48\" viewBox=\"0 0 24 26\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"/><path d=\"M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z\"/></svg>",
+      "Info": "<svg height=\"48\" viewBox=\"0 0 24 26\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z\"/></svg>",
+      "Dollar": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 26\"><path fill=\"none\" d=\"M0 0h24v24H0V0z\"/><path d=\"M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z\"/></svg>",
+      "Dining": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 26\"><path fill=\"none\" d=\"M0 0h24v24H0V0z\"/><path d=\"M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z\"/></svg>",
+      "burguer2-custom": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAACXBIWXMAAAsTAAALEwEAmpwYAAANvElEQVR4nO2dC9QWRRnHn6zA0lAzM1MDMySRIE3FJE0Iu0iBWVpxEvF4yUoFrTRNE7VMjTRPJmaa5iXCjMzKG6VkZmYdS0GjwiAzrSzzimFlze+b75Nl99l9d9+d3dn93vmf8z+Hj3d35pnL7s48txFpPjY0HG84w/AUw3MNLzH8luGihvBqw8sNzzc8zfBDhhMNX+m+OwY/Rhl+2PBKw4cM/9dyPmZ4o+FxYify89111eDBWMMvGP5J/A9Y1XzU8FLDPaXHJ8NLDGcb/lr8D4ovPmB4huGrSvZlqzDM8FjDf4j/AWgKnxH7VhhVol8bjxcZzjF8XIp1ztNi3xIs+lhgHWY43XBvw8kN4TsN9zM81PBEw8sMbzf8Z8G2/kfsRBh0i8cphvdJvk5YbXiD2EXTBMMXepDXFZ5nuJ3hRw0XGD4i+fqAhSOfxxfUL7JbbGK4UDo3+L+GNxkebLiRF0nrwVDDaYbfNFwlnfuFN9/rvUjqALuLXeRkNfBfYl9523qS0SdYC80y/LN07qNZnmTsCusYniD2e5b1mv+84aaeZGwSWBvxiXhYsicCn5BhnmTMjSGG8yW7IWjORvsSsMFA43m62Icjre+WGm7hS8BOWF+sxitNeGb4u71J1x6gFLtb0vtxheE23qRLwUsN75B0oVnVD7qtTYVY1/Bsw2dF78+/Gm7vTboY1jO8TXRBacAcsduhgOJgx/CkpE+Ckf5Es2CPfq2kL/Rm+BNt0IBPwv2i9zH/v6U/0ewWThOMWTsx5Z6R/fcxcabXIGOTwQ4AEzcLY7Sc66VcxyD/TvS+vks87Q6OSBEIBceklHtoYHw2T6tc0ubiAlm7Ly7PuJbVf5o29cpqxUxiB7EKCk1p8baM+3ZX7rmkSkEbDr7j8TdnFkZI+ufgsMqkjIHXzfIUIQ7scO9WYtW+0XvmVCVoCxDfOS3Ncc840ReGGM1qURvPUyqH5+S8/xOG/+6/51ZpgXarQuxs+KDYvvib4W4579tH9C0i+oNKDUg7SfIJhrdIMasdBp/XiN/tIYvU7/UzbcFaB9CeYgsZWvC+M0V/ECuzG6Djv12p8Cmxg9km0OFRlStrl9d6lag4mDiaxhB/i0qUbocolcHDq6hM7BOxq1RjN+ApqfrJwd8P+cc6LjeKHWXN5zTKr7uuiO/KH5SKfir2zeAaGxveE6nny47LnyrJtkx1WD6q8V9Fyr7IYdlxaJ8CLLFO38oHKJXACS4rieAUpa5xDstn7XFRpOwLxe165HhJyj/eYflRYEX8u1LfV11VwBO+VKlgoasKFJyn1De5gno2lWp8EnBxj8s/pYJ6BvAxpT4cTYe7KHyKUjhbkO1cFJ6CN8nauw30Di+usD7XYLcUXWSivKlSfqyHmvfVGS4KX6AUfL2LgjsArSGvMb5xr6ihPtdgAYiq9yypx+8fL6z4OOFuVir4ZAPRnRerfJ0FdAcccNEGxsdqzzKFals/dgNVrPwDyoN4hPh4XVamQM3WX/a7gsIFv8EfGc4sWVbbgXX0c2I1qXPFhsuVAQEq8fEiFrEr9TA3aVE8ZbYz+A3G3aDfU6K8tiO6FYXzS5aH8uwxcTRmE5SCGLwy+2XNHOxca9UiYACK9gVq9bL6CG3Rflw3BWmryrKDNUKS8QKfLllmmxG3rSxxUOZBkhy3Rd0U9H2loI84EJCYt2f6y1ss5b97bcYbZM3+nWQYuzooc4wkx41PeeE3i+b0sYMDAQE+AD0VE58B1lpbi7sgWHZo2jqgkIUQU2PcyrTaoZAB1WKxJCdAIZ+H0UoBy52KGFAlvibJ8SvkM7iXUsBipyIGVImTpaT+5gNKAZe6lTGgQpBnIT5+84oUcKhSAC7MvwxsBbUF/BVSAJp9ObDdvEYKQFMCBbabP5QCmNYAgQPd8iwpALRG5L1Ni08PbBcJwNlYugAOh6+OcVQDGhSo8wBlvDZLjGpJDGlAQwN1ZgXmOkOYAM1lmAA9zjABepxhAvQ4wwTocYYJ0OMME6DH2ZoJQEIGcuenJUHsJbrsi8ZOAJwSCcEmBoB0Z1EHRdLF4K70GcOVXZRdlKi3lxleJdZG/iWx6dl+IWucVaskgRpfEXviyeaxvkBdSxQ0SaO7OUCrcRPgj2K9gPN6/uLQ+D7D3xeoIy9/KzYLSFagKRG8OMPcVEH9DDz++WnJIOMgqPO9hj8vUEdjJgDZK/eX7p1IiXAhyYKL1yLBLDi4FA2PeotkJ8DOS+IgePu9vGD9Uexh+APpbJzzPgFuNnyHuMu2QaeRQrWbE8aIyT9GysXl0459pdhTOEAOjCK1zdYl6o/jdWJd89I+Vd4mAALtVGGdvElwVCWWjtw72qEKJJQgny5mbMLXXR/KSIoaopgI5NROA8MXn6zp8/rrH+K4/ijIHbxEkcHbBFhVR8URMCFI9UaWrJ37/113BhEWr1GTa905D7XI7Z6ZAAFhAvQ8wgTocYQJ0OOofAKwfSGzN8mU7xR7WAHUMoY+G/k9sB4+pYzDg5Hf2ZFwQulMsZlLc4MtBomFtKzgge3kE4YniT2iJhOkhYmfYhE4eIgOJTUvA4OvHQMTOLjI5+FlEgP5csOT3ztM5Aw6N+VCTJJHiT2LJh5wENhskm+Z3IPaYhE+d4wvK0TNuIDOe0MJaDswIJGAKj6+dwxcMEP5kfzzXcWSBTQSkyQ5xmzd+04d1U4BO82LmAFV4meSHGdM3XK18sO7/MgYUCG0Qyzw1lITQr7dj4wBFQI/w/g4f5wfzld+OMaPjAEV4jpJjvP7+eFI5QecMqv0aAmoF6To146X6zv2hxSimt4f9yvXblUB9SN+hN0Al0Uv0haC8GaxKd7DRGgfcJGbLrr1Fq51UCaaI+1soAHihPlIRUQFzfdp25SGcCLW2f0NyVseJuy0gxPxy8dbd0WFbWoCs6y594riso9CyGdSKJIbrpMYLquT6Ka8tKPYv+ixjU0gHs1jUvpGPbGzTm6jyFQmOGMLpTztEMxe4vFKn/QBO/H9noXTjofV/N/zcqRS3n2e2+ibmPwTR8kRNnVbA4QLE6AePiyxAyS0c2YgUb2nij3ahDCtjRzyLqW+vBNgF6U8LaA07wQY57htvsnWj0U1R/ysVNoLL452yr3KBfgCaN9kV7hTqTPvBBitXLdMuS7vBBjRfTMaD47n0aKdcQHoi5TWTgdhN1DV0fADCBOgPvBWiB9RB4ma7ksvGv/hJzUIFSZAvfisJNvN4dzySeWHuTUIFCZAvdCOlSW4RJ0Ap9cgUJgA9QITf7zdJJ3oixyJ/3B9DQKFCVAvSE8TbzcGvz6nwfgPmA61TnaJMAHqA/aUFZJs9+EDF2idcrcoAQQOESZAPUDJRxa0eJsxFg0fuGi2cgFENTxTqnEPDxOgWuDQQ7RwmoZ3YfRiXhG/SblwgOTAcWmujJ8iXmQCaLJo5eWdAI86blsTmGXZXaX1DdE/j2fcVAeDLaAezlT6pQ+7iZ09vgTbUZFJe7WHCdAdeUs+t/BLw3Cx+0MfAsaFI2hVc2YME6A47xEbL5gbPI3niH4WfVXk7UNQCitXBu+WkuWFCSDyDcOpontb5cICpdCjpbzJ8o0ZQmc99XNTyut1c/B4pV0PKe0vDE1VfLGLgg3mK2VnEUeGTVLK6vVt4IGSbNe1Lgp+q1LwchcFi3Vc0HwRNK7ulyUNWjmavkBze9uyfFO8g4cy3q5TXRSMG/XTSuGpnqUFwRO9SCk/SrJfTepQzmLlvoNi1wyX5P6Yv4eWb4ZXELfB2zHe/j1cVXCDUvhJrgoXm2eXhcp3ZU1mcJwX8QgmVd2wHGWcrchIp5C4GR/4MaJ7GC9x2A5f0OL/UW51m64/gSOUClZKdRFDRXP7A20RNMCsIIlPOZDXN66QZLsWuKwAo5CWQWyay0oc4DtSbFHJpyXvaSZNBX59Wvr8vVxXpG0HyTpRd5r0LJDWhjMD8gw+65qq/R7rwJmSbBsLXedv5zcrFcG9XVdUErivdzrzh7OMdvEloENw6JQW05ka/VMWP1Yq4zCmdauqsASYmJg8B/IfYuhCs3ik5EiZ2hJodn60qXkWzV1holIhbHpSqSZ9plyBb7w2FidWXbGWSwDVbSFDQ0ApYCR7QPSdWd5j6boGQaRPKJX/RWLxZgGVAKPOjaI//VPrEmJWigAoWtavS4geBJ+yC0Tve6f7/jyCXJMiCGrdJi4KBwO0VG+Q7Cm1p/Vlz70iRSB2CxvULdAgBq99fDPS9BnjfQmGtS3NhQy3cpenZvYq0FReKXofo+Lez59oFvgRpiWYwiCxjz/RWo+xku2tPdufaGuDVHJZrmNk7drcm3TtA1a8YyX9BBdM2Ed7ky4FHOFKmvm0ScDb4AQJu4Qs8K3fX7L9FtG5HOJLwE4YIXrET5TY6NEcDvcjYiOB6haTeycXeJI8dHKM8Q707BdKdkMgPuqLxeoURvkQ1DMw437Q8CpJP9Ylylsl48SvJoJ49CJp53gzkLr+LLHxAfv2lzF5EJC2HCz2zYfCJi19q0Ymx1FSwq3bJ9jC4Jj4pORvcKAlWzw8fbYq3OsNxGZiFRm+Yw/bQD6N3zbcvquebjhY7LB31dKX9zr5XOLdM6Lbzm0byObNXpd0NHWGnzWF+PERu49+H++kweizkBv4r6H1YrFEJNJ5YtWfKJAWtZzX9beFndEcsSt/BrwRXkn/B7ssZZ0nv83cAAAAAElFTkSuQmCC"
+    }
+  },
+  "dst": [
+    {
+      "type": "domainStory:activity",
+      "name": "faz",
+      "id": "connection_0471",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": 1,
+      "waypoints": [
+        {
+          "original": {
+            "x": 412,
+            "y": 265
+          },
+          "x": 412,
+          "y": 265
+        },
+        {
+          "x": 555,
+          "y": 28
+        },
+        {
+          "original": {
+            "x": 657,
+            "y": 28
+          },
+          "x": 657,
+          "y": 28
+        }
+      ],
+      "source": "shape_0984",
+      "target": "shape_8615",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "confirma",
+      "id": "connection_0764",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": 7,
+      "waypoints": [
+        {
+          "original": {
+            "x": 1498,
+            "y": 200
+          },
+          "x": 1498,
+          "y": 200
+        },
+        {
+          "original": {
+            "x": 1627,
+            "y": 200
+          },
+          "x": 1627,
+          "y": 200
+        }
+      ],
+      "source": "shape_1474",
+      "target": "shape_3052",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "processa",
+      "id": "connection_1359",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": 4,
+      "waypoints": [
+        {
+          "original": {
+            "x": 1038,
+            "y": 200
+          },
+          "x": 1038,
+          "y": 200
+        },
+        {
+          "original": {
+            "x": 1185,
+            "y": 200
+          },
+          "x": 1185,
+          "y": 200
+        }
+      ],
+      "source": "shape_1884",
+      "target": "shape_2781",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "envia",
+      "id": "connection_1557",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": 8,
+      "waypoints": [
+        {
+          "original": {
+            "x": 1620,
+            "y": 390
+          },
+          "x": 1620,
+          "y": 390
+        },
+        {
+          "original": {
+            "x": 1490,
+            "y": 390
+          },
+          "x": 1498,
+          "y": 390
+        }
+      ],
+      "source": "shape_0667",
+      "target": "shape_3856",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "no",
+      "id": "connection_2756",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 1267,
+            "y": 28
+          },
+          "x": 1267,
+          "y": 28
+        },
+        {
+          "original": {
+            "x": 1447,
+            "y": 27
+          },
+          "x": 1447,
+          "y": 27
+        }
+      ],
+      "source": "shape_8091",
+      "target": "shape_9897",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "ao",
+      "id": "connection_4747",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 738,
+            "y": 190
+          },
+          "x": 738,
+          "y": 190
+        },
+        {
+          "original": {
+            "x": 957,
+            "y": 190
+          },
+          "x": 957,
+          "y": 190
+        }
+      ],
+      "source": "shape_1426",
+      "target": "shape_1884",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "altera status para pronto do",
+      "id": "connection_4982",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": 10,
+      "waypoints": [
+        {
+          "original": {
+            "x": 1261,
+            "y": 567
+          },
+          "x": 1261,
+          "y": 567
+        },
+        {
+          "original": {
+            "x": 1203,
+            "y": 645
+          },
+          "x": 1203,
+          "y": 645
+        }
+      ],
+      "source": "shape_8096",
+      "target": "shape_8636",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "no",
+      "id": "connection_5066",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 1665,
+            "y": 200
+          },
+          "x": 1665,
+          "y": 247
+        },
+        {
+          "original": {
+            "x": 1665,
+            "y": 390
+          },
+          "x": 1665,
+          "y": 352
+        }
+      ],
+      "source": "shape_3052",
+      "target": "shape_0667",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "no",
+      "id": "connection_5222",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 1147,
+            "y": 670
+          },
+          "x": 1147,
+          "y": 670
+        },
+        {
+          "original": {
+            "x": 1038,
+            "y": 670
+          },
+          "x": 1038,
+          "y": 670
+        }
+      ],
+      "source": "shape_8636",
+      "target": "shape_6551",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "para o",
+      "id": "connection_5466",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 777,
+            "y": 293
+          },
+          "x": 777,
+          "y": 293
+        },
+        {
+          "original": {
+            "x": 430,
+            "y": 309
+          },
+          "x": 430,
+          "y": 309
+        }
+      ],
+      "source": "shape_0296",
+      "target": "shape_0984",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "registra",
+      "id": "connection_5559",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": 2,
+      "waypoints": [
+        {
+          "original": {
+            "x": 1025,
+            "y": 160
+          },
+          "x": 1025,
+          "y": 160
+        },
+        {
+          "x": 1075,
+          "y": 50
+        },
+        {
+          "original": {
+            "x": 1187,
+            "y": 34
+          },
+          "x": 1187,
+          "y": 34
+        }
+      ],
+      "source": "shape_1884",
+      "target": "shape_8091",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "realiza",
+      "id": "connection_6240",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": 3,
+      "waypoints": [
+        {
+          "original": {
+            "x": 423,
+            "y": 275
+          },
+          "x": 423,
+          "y": 275
+        },
+        {
+          "x": 565,
+          "y": 190
+        },
+        {
+          "original": {
+            "x": 657,
+            "y": 190
+          },
+          "x": 657,
+          "y": 190
+        }
+      ],
+      "source": "shape_0984",
+      "target": "shape_1426",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "retira",
+      "id": "connection_6653",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": 12,
+      "waypoints": [
+        {
+          "original": {
+            "x": 396,
+            "y": 338
+          },
+          "x": 396,
+          "y": 338
+        },
+        {
+          "original": {
+            "x": 396,
+            "y": 462
+          },
+          "x": 396,
+          "y": 462
+        }
+      ],
+      "source": "shape_0984",
+      "target": "shape_8332",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "chama",
+      "id": "connection_6727",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": 11,
+      "waypoints": [
+        {
+          "original": {
+            "x": 980,
+            "y": 247
+          },
+          "x": 980,
+          "y": 247
+        },
+        {
+          "x": 925,
+          "y": 420
+        },
+        {
+          "original": {
+            "x": 841,
+            "y": 483
+          },
+          "x": 841,
+          "y": 483
+        }
+      ],
+      "source": "shape_1884",
+      "target": "shape_1042",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:connection",
+      "name": "",
+      "id": "connection_7056",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "waypoints": [
+        {
+          "original": {
+            "x": 717,
+            "y": 170
+          },
+          "x": 717,
+          "y": 170
+        },
+        {
+          "original": {
+            "x": 755,
+            "y": 137
+          },
+          "x": 755,
+          "y": 137
+        }
+      ],
+      "source": "shape_1426",
+      "target": "shape_7802"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "do",
+      "id": "connection_7460",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 778,
+            "y": 498
+          },
+          "x": 778,
+          "y": 498
+        },
+        {
+          "x": 495,
+          "y": 480
+        },
+        {
+          "original": {
+            "x": 419,
+            "y": 320
+          },
+          "x": 419,
+          "y": 320
+        }
+      ],
+      "source": "shape_1042",
+      "target": "shape_0984",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:connection",
+      "name": "",
+      "id": "connection_7584",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "waypoints": [
+        {
+          "original": {
+            "x": 777,
+            "y": 307
+          },
+          "x": 777,
+          "y": 307
+        },
+        {
+          "original": {
+            "x": 700,
+            "y": 340
+          },
+          "x": 700,
+          "y": 340
+        }
+      ],
+      "source": "shape_0296",
+      "target": "shape_9591"
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "no",
+      "id": "connection_7604",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 1268,
+            "y": 200
+          },
+          "x": 1268,
+          "y": 200
+        },
+        {
+          "original": {
+            "x": 1417,
+            "y": 200
+          },
+          "x": 1417,
+          "y": 200
+        }
+      ],
+      "source": "shape_2781",
+      "target": "shape_1474",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "para",
+      "id": "connection_8549",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 1417,
+            "y": 417
+          },
+          "x": 1417,
+          "y": 417
+        },
+        {
+          "original": {
+            "x": 1311,
+            "y": 494
+          },
+          "x": 1311,
+          "y": 494
+        }
+      ],
+      "source": "shape_3856",
+      "target": "shape_8096",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "preparar",
+      "id": "connection_9000",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": 9,
+      "waypoints": [
+        {
+          "original": {
+            "x": 1257,
+            "y": 520
+          },
+          "x": 1257,
+          "y": 520
+        },
+        {
+          "original": {
+            "x": 1038,
+            "y": 520
+          },
+          "x": 1038,
+          "y": 520
+        }
+      ],
+      "source": "shape_8096",
+      "target": "shape_9284",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "ao",
+      "id": "connection_9256",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": null,
+      "waypoints": [
+        {
+          "original": {
+            "x": 740,
+            "y": 30
+          },
+          "x": 740,
+          "y": 30
+        },
+        {
+          "x": 850,
+          "y": 30
+        },
+        {
+          "original": {
+            "x": 995,
+            "y": 160
+          },
+          "x": 995,
+          "y": 160
+        }
+      ],
+      "source": "shape_8615",
+      "target": "shape_1884",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "da",
+      "id": "connection_9272",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": 6,
+      "waypoints": [
+        {
+          "original": {
+            "x": 957,
+            "y": 219
+          },
+          "x": 957,
+          "y": 219
+        },
+        {
+          "original": {
+            "x": 843,
+            "y": 277
+          },
+          "x": 843,
+          "y": 277
+        }
+      ],
+      "source": "shape_1884",
+      "target": "shape_0296",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:activity",
+      "name": "gera",
+      "id": "connection_9420",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "pickedColor": "black",
+      "number": 5,
+      "waypoints": [
+        {
+          "original": {
+            "x": 1417,
+            "y": 240
+          },
+          "x": 1417,
+          "y": 240
+        },
+        {
+          "original": {
+            "x": 1316,
+            "y": 348
+          },
+          "x": 1316,
+          "y": 348
+        }
+      ],
+      "source": "shape_1474",
+      "target": "shape_0979",
+      "multipleNumberAllowed": false
+    },
+    {
+      "type": "domainStory:workObjectDocument",
+      "name": "Comprovante de pagamento",
+      "id": "shape_0296",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 777,
+      "y": 253
+    },
+    {
+      "type": "domainStory:actorSystem",
+      "name": "Sistema de Pedidos",
+      "id": "shape_0667",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 1627,
+      "y": 352
+    },
+    {
+      "type": "domainStory:workObjectDocument",
+      "name": "Comprovante de pagamento",
+      "id": "shape_0979",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 1257,
+      "y": 332
+    },
+    {
+      "type": "domainStory:actorPerson",
+      "name": "Cliente",
+      "id": "shape_0984",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 358,
+      "y": 253
+    },
+    {
+      "$type": "Element",
+      "name": "Senha",
+      "id": "shape_1042",
+      "di": {},
+      "type": "domainStory:workObjectDocument",
+      "x": 778,
+      "y": 462,
+      "$descriptor": {}
+    },
+    {
+      "type": "domainStory:workObjectDollar",
+      "name": "Pagamento",
+      "id": "shape_1426",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 657,
+      "y": 152
+    },
+    {
+      "type": "domainStory:actorSystem",
+      "name": "Sistema de pagamento",
+      "id": "shape_1474",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 1417,
+      "y": 162
+    },
+    {
+      "$type": "Element",
+      "name": "Atendente",
+      "id": "shape_1884",
+      "di": {},
+      "type": "domainStory:actorPerson",
+      "x": 957,
+      "y": 162,
+      "$descriptor": {}
+    },
+    {
+      "type": "domainStory:workObjectDollar",
+      "name": "Pagamento",
+      "id": "shape_2781",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 1187,
+      "y": 162
+    },
+    {
+      "type": "domainStory:workObjectburguer2-custom",
+      "name": "Pedido",
+      "id": "shape_3052",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 1627,
+      "y": 162
+    },
+    {
+      "type": "domainStory:workObjectburguer2-custom",
+      "name": "Pedido",
+      "id": "shape_3856",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 1417,
+      "y": 352
+    },
+    {
+      "type": "domainStory:actorSystem",
+      "name": "Sistema de pedidos",
+      "id": "shape_6551",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 957,
+      "y": 632
+    },
+    {
+      "type": "domainStory:textAnnotation",
+      "name": "",
+      "id": "shape_7802",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 755,
+      "y": 77,
+      "text": "Nesta etapa, o cliente escolhe se vai pagar no dinheiro ou cartão.",
+      "number": 85.99536895751953,
+      "height": 85.99536895751953,
+      "width": 100
+    },
+    {
+      "type": "domainStory:workObjectburguer2-custom",
+      "name": "Pedido",
+      "id": "shape_8091",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 1187,
+      "y": -10
+    },
+    {
+      "type": "domainStory:actorcook3-custom",
+      "name": "Cozinha",
+      "id": "shape_8096",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 1257,
+      "y": 482
+    },
+    {
+      "type": "domainStory:workObjectburguer2-custom",
+      "name": "Pedido",
+      "id": "shape_8332",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 358,
+      "y": 462
+    },
+    {
+      "type": "domainStory:workObjectburguer2-custom",
+      "name": "Pedido",
+      "id": "shape_8615",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 657,
+      "y": -8
+    },
+    {
+      "type": "domainStory:workObjectburguer2-custom",
+      "name": "Pedido",
+      "id": "shape_8636",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 1147,
+      "y": 632
+    },
+    {
+      "type": "domainStory:workObjectburguer2-custom",
+      "name": "Pedido",
+      "id": "shape_9284",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 957,
+      "y": 482
+    },
+    {
+      "type": "domainStory:textAnnotation",
+      "name": "",
+      "id": "shape_9591",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 615,
+      "y": 340,
+      "text": "O comprovante de pagamento contém a senha do pedido do cliente",
+      "number": 100,
+      "height": 100,
+      "width": 100
+    },
+    {
+      "type": "domainStory:actorSystem",
+      "name": "Sistema de Pedidos",
+      "id": "shape_9897",
+      "$type": "Element",
+      "di": {},
+      "$descriptor": {},
+      "x": 1447,
+      "y": -10
+    },
+    {
+      "info": "Fluxo principal do pedido do cliente através do atendente"
+    },
+    {
+      "version": "2.2.0"
+    }
+  ]
+}

@@ -1542,6 +1542,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4":
+  version: 4.17.10
+  resolution: "@types/lodash@npm:4.17.10"
+  checksum: 10c0/149b2b9fcc277204393423ed14df28894980c2322ec522fc23f2c6f7edef6ee8d876ee09ed4520f45d128adc0a7a6e618bb0017668349716cd99c6ef54a21621
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 22.7.4
   resolution: "@types/node@npm:22.7.4"
@@ -2543,11 +2550,13 @@ __metadata:
     "@swc/core": "npm:1.7.26"
     "@swc/jest": "npm:^0.2.36"
     "@types/jest": "npm:^29.5.13"
+    "@types/lodash": "npm:^4"
     "@types/uuid": "npm:^10"
     commitizen: "npm:^4.3.1"
     cz-conventional-changelog: "npm:^3.3.0"
     husky: "npm:^9.1.6"
     jest: "npm:^29.7.0"
+    lodash: "npm:^4.17.21"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.6.2"
     uuid: "npm:^10.0.0"

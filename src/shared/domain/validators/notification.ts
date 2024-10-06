@@ -2,6 +2,24 @@ export class Notification {
   errors = new Map<string, string[] | string>();
 
   /**
+   * Copia os erros de outra instância de Notification, mas adiciona um campo personalizado.
+   * 
+   * @param notification A instância de Notification de onde os erros serão copiados.
+   * @param customField O campo ao qual os erros serão associados.
+   */
+  public copyErrorsWithCustomField(notification: Notification, customField: string) {
+    notification.errors.forEach((value) => {
+      if (Array.isArray(value)) {
+        value.forEach((error) => {
+          this.addError(error, customField);
+        });
+        return;
+      }
+
+      this.addError(value, customField);
+    });
+  }
+  /**
    * Adiciona um erro para um campo específico.
    * Se o campo não for fornecido, o erro é armazenado como erro global.
    * 

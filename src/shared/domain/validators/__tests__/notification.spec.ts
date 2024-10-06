@@ -71,6 +71,25 @@ describe('Notification Unit Test', () => {
     ]);
   });
 
+  it('should copy errors with custom field from another Notification', () => {
+    const notification = new Notification();
+    notification.addError('Error message', 'field');
+    notification.addError('Error message 2', 'field');
+    notification.addError('Error message 3', 'field2');
+
+    const notification2 = new Notification();
+    notification2.copyErrorsWithCustomField(notification, 'customField');
+    notification2.addError('Error message 4', 'field3');
+    expect(notification2.toJSON()).toEqual([
+      {
+        customField: ['Error message', 'Error message 2', 'Error message 3']
+      },
+      {
+        field3: ['Error message 4']
+      }
+    ]);
+  });
+
   describe('setError', () => {
     it('should set a new error to Notification', () => {
       const notification = new Notification();

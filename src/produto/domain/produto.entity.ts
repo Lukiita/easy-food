@@ -6,11 +6,17 @@ export enum ProdutoCategoria {
   BEBIDA = 'BEBIDA',
 };
 
+export enum ProdutoStatus {
+  ATIVO = 'ATIVO',
+  INATIVO = 'INATIVO',
+};
+
 type ProdutoConstructorProps = BaseEntityConstructorProps & {
   name: string;
   price: number;
   category: ProdutoCategoria;
   description?: string | null;
+  status?: ProdutoStatus;
 };
 
 type ProdutoPros = BaseEntityProps & {
@@ -18,12 +24,14 @@ type ProdutoPros = BaseEntityProps & {
   price: number;
   category: ProdutoCategoria;
   description: string | null;
+  status: ProdutoStatus;
 }
 export class Produto extends BaseEntity<ProdutoPros> {
   private _name: Name;
   private _price: Money;
   private _category: ProdutoCategoria;
   private _description: string | null;
+  private _status: ProdutoStatus;
 
   private constructor(props: ProdutoConstructorProps) {
     super(props);
@@ -31,6 +39,7 @@ export class Produto extends BaseEntity<ProdutoPros> {
     this._price = new Money(props.price);
     this._category = props.category
     this._description = props.description || null;
+    this._status = props.status || ProdutoStatus.ATIVO;
     this.validate();
   }
 
@@ -82,6 +91,7 @@ export class Produto extends BaseEntity<ProdutoPros> {
       price: this._price.value,
       category: this._category,
       description: this._description,
+      status: this._status,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt,
     };

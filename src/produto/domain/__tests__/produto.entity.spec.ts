@@ -1,5 +1,5 @@
 import { subDays, subHours } from 'date-fns';
-import { Produto, ProdutoCategoria } from '../produto.entity';
+import { Produto, ProdutoCategoria, ProdutoStatus } from '../produto.entity';
 
 describe('Produto Unit Tests', () => {
   it('should create a new Produto', () => {
@@ -20,6 +20,7 @@ describe('Produto Unit Tests', () => {
       price: 10,
       category: ProdutoCategoria.LANCHE,
       description: 'Product description',
+      status: ProdutoStatus.ATIVO,
       createdAt: produto.createdAt,
       updatedAt: produto.updatedAt,
     });
@@ -34,6 +35,7 @@ describe('Produto Unit Tests', () => {
       price: 10,
       category: ProdutoCategoria.LANCHE,
       description: 'Product description',
+      status: ProdutoStatus.ATIVO,
       createdAt,
       updatedAt,
     });
@@ -45,6 +47,7 @@ describe('Produto Unit Tests', () => {
       price: 10,
       category: ProdutoCategoria.LANCHE,
       description: 'Product description',
+      status: ProdutoStatus.ATIVO,
       createdAt,
       updatedAt,
     });

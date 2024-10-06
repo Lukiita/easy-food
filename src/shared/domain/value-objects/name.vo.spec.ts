@@ -10,12 +10,12 @@ describe('Name Unit Tests', () => {
 
   test
     .each([
-      [null, 'Nome é obrigatório'],
-      ['', 'Nome é obrigatório'],
-      [undefined, 'Nome é obrigatório'],
-      ['P1', 'Nome deve ter no mínimo 3 caracteres'],
-      ['P'.repeat(101), 'Nome deve ter no máximo 100 caracteres'],
-      ['Produto 1@', 'Nome deve conter apenas letras e números'],
+      [null, 'Name is required'],
+      ['', 'Name is required'],
+      [undefined, 'Name is required'],
+      ['P1', 'Name must be at least 3 characters long'],
+      ['P'.repeat(101), 'Name must be at most 100 characters long'],
+      ['Produto 1@', 'Name must contain only letters and numbers'],
     ])('should return an error for invalid Produto name: %s', (value, message) => {
       const name = new Name(value as any);
 

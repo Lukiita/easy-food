@@ -7,7 +7,7 @@ describe('Produto Unit Tests', () => {
       name: 'Produto 1',
       price: 10,
       category: ProdutoCategoria.LANCHE,
-      description: 'Descrição do Produto 1',
+      description: 'Product description',
     });
 
     expect(produto.id).toBeDefined();
@@ -18,7 +18,7 @@ describe('Produto Unit Tests', () => {
       name: 'Produto 1',
       price: 10,
       category: ProdutoCategoria.LANCHE,
-      description: 'Descrição do Produto 1',
+      description: 'Product description',
       createdAt: produto.createdAt,
       updatedAt: produto.updatedAt,
     });
@@ -32,7 +32,7 @@ describe('Produto Unit Tests', () => {
       name: 'Produto 1',
       price: 10,
       category: ProdutoCategoria.LANCHE,
-      description: 'Descrição do Produto 1',
+      description: 'Product description',
       createdAt,
       updatedAt,
     });
@@ -41,7 +41,7 @@ describe('Produto Unit Tests', () => {
       name: 'Produto 1',
       price: 10,
       category: ProdutoCategoria.LANCHE,
-      description: 'Descrição do Produto 1',
+      description: 'Product description',
       createdAt,
       updatedAt,
     });
@@ -53,7 +53,7 @@ describe('Produto Unit Tests', () => {
         name: 'Produto 1',
         price: 10,
         category: ProdutoCategoria.LANCHE,
-        description: 'Descrição do Produto 1',
+        description: 'Product description',
       });
 
       expect(produto.notification.hasErrors()).toBeFalsy();
@@ -64,13 +64,13 @@ describe('Produto Unit Tests', () => {
         name: 'Invalid Name@',
         price: 10,
         category: ProdutoCategoria.LANCHE,
-        description: 'Descrição do Produto 1',
+        description: 'Product description',
       });
 
       expect(produto.notification.hasErrors()).toBeTruthy();
       expect(produto.notification).notificationContainsErrorMessages([
         {
-          name: ['Nome deve conter apenas letras e números'],
+          name: ['Name must contain only letters and numbers'],
         },
       ]);
     });

@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { Notification } from './validators';
 
 export type BaseEntityConstructorProps = {
   id?: string;
@@ -21,6 +22,7 @@ export abstract class BaseEntity<T extends BaseEntityProps = any> {
   public readonly id: string;
   public readonly createdAt: Date;
   protected _updatedAt: Date;
+  public readonly notification = new Notification();
 
   constructor(props: BaseEntityConstructorProps) {
     this.id = props.id || uuidv4();

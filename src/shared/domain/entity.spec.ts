@@ -16,6 +16,7 @@ describe('BaseEntity Unit Test', () => {
     const entity = new StubEntity({});
     expect(entity.id).toBeDefined();
     expect(uuidValidate(entity.id)).toBe(true);
+    expect(entity.notification.errors.size).toBe(0);
     expect(entity.createdAt).toBeInstanceOf(Date);
     expect(entity.updatedAt).toBeInstanceOf(Date);
   });

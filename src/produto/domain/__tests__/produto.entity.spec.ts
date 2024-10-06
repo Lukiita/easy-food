@@ -13,6 +13,7 @@ describe('Produto Unit Tests', () => {
     expect(produto.id).toBeDefined();
     expect(produto.createdAt).toBeInstanceOf(Date);
     expect(produto.updatedAt).toBeInstanceOf(Date);
+    expect(produto.notification.hasErrors()).toBeFalsy();
     expect(produto.toJSON()).toEqual({
       id: produto.id,
       name: 'Produto 1',
@@ -36,6 +37,8 @@ describe('Produto Unit Tests', () => {
       createdAt,
       updatedAt,
     });
+
+    expect(restoredProduto.notification.hasErrors()).toBeFalsy();
     expect(restoredProduto.toJSON()).toEqual({
       id: 'd6688697-edfb-4401-9711-3260c44f6a1c',
       name: 'Produto 1',
@@ -47,61 +50,51 @@ describe('Produto Unit Tests', () => {
     });
   });
 
-  describe('Produto Name Validation', () => {
-    it('should not return an error for valid Produto name', () => {
-      const produto = Produto.create({
-        name: 'Produto 1',
-        price: 10,
-        category: ProdutoCategoria.LANCHE,
-        description: 'Product description',
-      });
-
-      expect(produto.notification.hasErrors()).toBeFalsy();
+  test('should return an error for invalid Produto name', () => {
+    const produto = Produto.create({
+      name: 'Invalid Name@',
+      price: 10,
+      category: ProdutoCategoria.LANCHE,
+      description: 'Product description',
     });
 
-    test('should return an error for invalid Produto name', () => {
-      const produto = Produto.create({
-        name: 'Invalid Name@',
-        price: 10,
-        category: ProdutoCategoria.LANCHE,
-        description: 'Product description',
-      });
+    expect(produto.notification.hasErrors()).toBeTruthy();
+    expect(produto.notification).notificationContainsErrorMessages([
+      {
+        name: ['Name must contain only letters and numbers'],
+      },
+    ]);
+  });
 
-      expect(produto.notification.hasErrors()).toBeTruthy();
-      expect(produto.notification).notificationContainsErrorMessages([
-        {
-          name: ['Name must contain only letters and numbers'],
-        },
-      ]);
+  test('should return an error for invalid Produto price', () => {
+    const produto = Produto.create({
+      name: 'Produto 1',
+      price: -10,
+      category: ProdutoCategoria.LANCHE,
+      description: 'Product description',
     });
 
-    describe('Produto Price Validation', () => {
-      it('should not return an error for valid Produto price', () => {
-        const produto = Produto.create({
-          name: 'Produto 1',
-          price: 10,
-          category: ProdutoCategoria.LANCHE,
-          description: 'Product description',
-        });
+    expect(produto.notification.hasErrors()).toBeTruthy();
+    expect(produto.notification).notificationContainsErrorMessages([
+      {
+        price: ['The value cannot be negative'],
+      },
+    ]);
+  });
 
-        expect(produto.notification.hasErrors()).toBeFalsy();
-      });
-
-      test('should return an error for invalid Produto price', () => {
-        const produto = Produto.create({
-          name: 'Produto 1',
-          price: -10,
-          category: ProdutoCategoria.LANCHE,
-          description: 'Product description',
-        });
-
-        expect(produto.notification.hasErrors()).toBeTruthy();
-        expect(produto.notification).notificationContainsErrorMessages([
-          {
-            price: ['The value cannot be negative'],
-          },
-        ]);
-      });
+  test('should return an error for invalid Produto category', () => {
+    const produto = Produto.create({
+      name: 'Produto 1',
+      price: 10,
+      category: 'Invalid category' as any,
+      description: 'Product description',
     });
-  })
+
+    expect(produto.notification.hasErrors()).toBeTruthy();
+    expect(produto.notification).notificationContainsErrorMessages([
+      {
+        category: ['Invalid category'],
+      },
+    ]);
+  });
 });

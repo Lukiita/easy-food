@@ -54,6 +54,7 @@ export class Produto extends BaseEntity<ProdutoPros> {
   private validate(): void {
     this.validateName();
     this.validatePrice();
+    this.validateCategory();
   }
 
   private validateName(): void {
@@ -65,6 +66,12 @@ export class Produto extends BaseEntity<ProdutoPros> {
   private validatePrice(): void {
     if (this._price.hasErrors()) {
       this.notification.copyErrorsWithCustomField(this._price.notification, 'price');
+    }
+  }
+
+  private validateCategory(): void {
+    if (!Object.values(ProdutoCategoria).includes(this._category)) {
+      this.notification.addError('Invalid category', 'category');
     }
   }
 

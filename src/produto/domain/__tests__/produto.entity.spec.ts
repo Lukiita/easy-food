@@ -53,7 +53,24 @@ describe('Produto Unit Tests', () => {
     });
   });
 
-  test('should return an error for invalid Produto name', () => {
+  it('should test Produto getters', () => {
+    const produto = Produto.create({
+      name: 'Produto 1',
+      price: 10,
+      category: ProdutoCategoria.LANCHE,
+      description: 'Product description',
+    });
+
+    expect(produto.name).toBe('Produto 1');
+    expect(produto.price).toBe(10);
+    expect(produto.category).toBe(ProdutoCategoria.LANCHE);
+    expect(produto.description).toBe('Product description');
+    expect(produto.status).toBe(ProdutoStatus.ATIVO);
+    expect(produto.createdAt).toBeInstanceOf(Date);
+    expect(produto.updatedAt).toBeInstanceOf(Date);
+  });
+
+  it('should return an error for invalid Produto name', () => {
     const produto = Produto.create({
       name: 'Invalid Name@',
       price: 10,
@@ -69,7 +86,7 @@ describe('Produto Unit Tests', () => {
     ]);
   });
 
-  test('should return an error for invalid Produto price', () => {
+  it('should return an error for invalid Produto price', () => {
     const produto = Produto.create({
       name: 'Produto 1',
       price: -10,
@@ -85,7 +102,7 @@ describe('Produto Unit Tests', () => {
     ]);
   });
 
-  test('should return an error for invalid Produto category', () => {
+  it('should return an error for invalid Produto category', () => {
     const produto = Produto.create({
       name: 'Produto 1',
       price: 10,

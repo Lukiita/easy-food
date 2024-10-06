@@ -19,7 +19,7 @@ type ProdutoConstructorProps = BaseEntityConstructorProps & {
   status?: ProdutoStatus;
 };
 
-type ProdutoPros = BaseEntityProps & {
+export type ProdutoPros = BaseEntityProps & {
   name: string;
   price: number;
   category: ProdutoCategoria;
@@ -41,6 +41,26 @@ export class Produto extends BaseEntity<ProdutoPros> {
     this._description = props.description || null;
     this._status = props.status || ProdutoStatus.ATIVO;
     this.validate();
+  }
+
+  public get name(): string {
+    return this._name.value;
+  }
+
+  public get price(): number {
+    return this._price.value;
+  }
+
+  public get category(): ProdutoCategoria {
+    return this._category;
+  }
+
+  public get description(): string | null {
+    return this._description;
+  }
+
+  public get status(): ProdutoStatus {
+    return this._status;
   }
 
   public static create(props: ProdutoConstructorProps): Produto {

@@ -1,6 +1,6 @@
 import { ValueObject } from './value-object';
 
-export class Name extends ValueObject {
+export class Name extends ValueObject<string> {
   public readonly value: string;
 
   constructor(value: string) {

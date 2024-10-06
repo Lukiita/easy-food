@@ -1,8 +1,9 @@
 import { isEqual } from 'lodash';
 import { Notification } from '../validators';
 
-export abstract class ValueObject {
+export abstract class ValueObject<T = any> {
   public readonly notification = new Notification();
+  abstract value: T;
 
   public hasErrors(): boolean {
     return this.notification.hasErrors();

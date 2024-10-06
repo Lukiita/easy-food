@@ -1,7 +1,7 @@
 import { v4 as uuidv4, validate as uuidValidate } from 'uuid';
 import { ValueObject } from './value-object';
 
-export class EntityId extends ValueObject {
+export class EntityId extends ValueObject<string> {
   public readonly value: string;
 
   constructor(value?: string) {

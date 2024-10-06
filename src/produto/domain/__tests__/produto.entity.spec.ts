@@ -74,5 +74,34 @@ describe('Produto Unit Tests', () => {
         },
       ]);
     });
-  });
+
+    describe('Produto Price Validation', () => {
+      it('should not return an error for valid Produto price', () => {
+        const produto = Produto.create({
+          name: 'Produto 1',
+          price: 10,
+          category: ProdutoCategoria.LANCHE,
+          description: 'Product description',
+        });
+
+        expect(produto.notification.hasErrors()).toBeFalsy();
+      });
+
+      test('should return an error for invalid Produto price', () => {
+        const produto = Produto.create({
+          name: 'Produto 1',
+          price: -10,
+          category: ProdutoCategoria.LANCHE,
+          description: 'Product description',
+        });
+
+        expect(produto.notification.hasErrors()).toBeTruthy();
+        expect(produto.notification).notificationContainsErrorMessages([
+          {
+            price: ['The value cannot be negative'],
+          },
+        ]);
+      });
+    });
+  })
 });

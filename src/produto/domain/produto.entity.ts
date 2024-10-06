@@ -1,4 +1,4 @@
-import { BaseEntity, BaseEntityConstructorProps, BaseEntityProps, Name } from '../../../shared';
+import { BaseEntity, BaseEntityConstructorProps, BaseEntityProps, Name } from '../../shared';
 
 export enum ProdutoCategoria {
   LANCHE = 'LANCHE',

@@ -1,5 +1,5 @@
 import { subDays, subHours } from 'date-fns';
-import { Produto, ProdutoCategoria } from '../entities';
+import { Produto, ProdutoCategoria } from '../produto.entity';
 
 describe('Produto Unit Tests', () => {
   it('should create a new Produto', () => {

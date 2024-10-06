@@ -1,6 +1,13 @@
 import { isEqual } from 'lodash';
+import { Notification } from '../validators';
 
 export abstract class ValueObject {
+  public readonly notification = new Notification();
+
+  public hasErrors(): boolean {
+    return this.notification.hasErrors();
+  }
+
   public equals(object: ValueObject): boolean {
     if (object === null || object === undefined) {
       return false;

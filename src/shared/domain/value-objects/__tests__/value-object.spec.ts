@@ -1,4 +1,4 @@
-import { ValueObject } from './value-object';
+import { ValueObject } from '../value-object';
 
 class ValueObjectStub extends ValueObject {
   constructor(

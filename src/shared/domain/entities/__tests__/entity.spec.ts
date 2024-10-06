@@ -1,5 +1,5 @@
 import { validate as uuidValidate } from 'uuid';
-import { BaseEntity } from './entity';
+import { BaseEntity } from '../entity';
 
 class StubEntity extends BaseEntity {
   toJSON() {

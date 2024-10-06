@@ -1,4 +1,4 @@
-import { BaseEntity, BaseEntityConstructorProps, BaseEntityProps } from '../../shared';
+import { BaseEntity, BaseEntityConstructorProps, BaseEntityProps, Name } from '../../shared';
 
 export enum ProdutoCategoria {
   LANCHE = 'LANCHE',
@@ -20,17 +20,18 @@ type ProdutoPros = BaseEntityProps & {
   description: string | null;
 }
 export class Produto extends BaseEntity<ProdutoPros> {
-  private _name: string;
+  private _name: Name;
   private _price: number;
   private _category: ProdutoCategoria;
   private _description: string | null;
 
   private constructor(props: ProdutoConstructorProps) {
     super(props);
-    this._name = props.name;
+    this._name = new Name(props.name);
     this._price = props.price;
     this._category = props.category
     this._description = props.description || null;
+    this.validate();
   }
 
   public static create(props: ProdutoConstructorProps): Produto {
@@ -50,10 +51,16 @@ export class Produto extends BaseEntity<ProdutoPros> {
     });
   }
 
+  private validate(): void {
+    if (this._name.hasErrors()) {
+      this.notification.copyErrors(this._name.notification);
+    }
+  }
+
   public toJSON(): ProdutoPros {
     return {
       id: this.id,
-      name: this._name,
+      name: this._name.value,
       price: this._price,
       category: this._category,
       description: this._description,

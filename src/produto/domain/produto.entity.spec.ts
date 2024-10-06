@@ -46,5 +46,36 @@ describe('Produto Unit Tests', () => {
     });
   });
 
+  describe('Produto Name Validation', () => {
+    it('should not return an error for valid Produto name', () => {
+      const produto = Produto.create({
+        name: 'Produto 1',
+        price: 10,
+        category: ProdutoCategoria.LANCHE,
+        description: 'Descrição do Produto 1',
+      });
+
+      expect(produto.notification.hasErrors()).toBeFalsy();
+    });
+
+    test('should return an error for invalid Produto name', () => {
+      const produto = Produto.create({
+        name: 'Invalid Name@',
+        price: 10,
+        category: ProdutoCategoria.LANCHE,
+        description: 'Descrição do Produto 1',
+      });
+
+      expect(produto.notification.hasErrors()).toBeTruthy();
+      expect(produto.notification).notificationContainsErrorMessages([
+        {
+          name: ['Nome deve conter apenas letras e números'],
+        },
+      ]);
+    });
+
+  });
+
+
 
 });

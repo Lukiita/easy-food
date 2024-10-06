@@ -52,10 +52,17 @@ export class Produto extends BaseEntity<ProdutoPros> {
   }
 
   private validate(): void {
+    this.validateName();
+    this.validatePrice();
+  }
+
+  private validateName(): void {
     if (this._name.hasErrors()) {
       this.notification.copyErrors(this._name.notification);
     }
+  }
 
+  private validatePrice(): void {
     if (this._price.hasErrors()) {
       this.notification.copyErrorsWithCustomField(this._price.notification, 'price');
     }

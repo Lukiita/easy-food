@@ -1,5 +1,5 @@
 import { subDays, subHours } from 'date-fns';
-import { Produto, ProdutoCategoria } from '../produto.entity';
+import { Produto, ProdutoCategoria } from './produto.entity';
 describe('Produto Unit Tests', () => {
   it('should create a new Produto', () => {
     const produto = Produto.create({
@@ -45,4 +45,6 @@ describe('Produto Unit Tests', () => {
       updatedAt,
     });
   });
+
+
 });

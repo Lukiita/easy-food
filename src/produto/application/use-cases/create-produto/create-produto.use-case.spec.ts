@@ -1,3 +1,4 @@
+import { EntityValidationError } from '../../../../shared';
 import { ProdutoCategoria, ProdutoRepository } from '../../../domain';
 import { ProdutoInMemoryrepository } from '../../../infra';
 import { CreateProdutoUseCase } from './create-produto.use-case';
@@ -33,5 +34,14 @@ describe('CreateProdutoUseCase E2E Tests', () => {
       createdAt: produto.createdAt,
       updatedAt: produto.updatedAt,
     });
+  });
+
+  it('should throw an error when creating a Produto with invalid data', async () => {
+    await expect(createProdutoUseCase.execute({
+      name: 'Produto 1',
+      price: -10,
+      category: ProdutoCategoria.LANCHE,
+      description: 'Product description',
+    })).rejects.toThrow(EntityValidationError);
   });
 });

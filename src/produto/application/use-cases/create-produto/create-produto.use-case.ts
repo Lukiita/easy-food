@@ -1,3 +1,4 @@
+import { EntityValidationError } from '../../../../shared';
 import { Produto, ProdutoCategoria, ProdutoRepository } from '../../../domain';
 
 export class CreateProdutoUseCase {
@@ -10,6 +11,10 @@ export class CreateProdutoUseCase {
       category: input.category,
       description: input.description,
     });
+
+    if (produto.hasError()) {
+      throw new EntityValidationError(produto.notification.toJSON(), 'Produto data is invalid');
+    }
 
     await this.produtoRepository.save(produto);
     return { produtoId: produto.id }; .0

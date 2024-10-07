@@ -19,5 +19,7 @@ describe('BaseEntity Unit Test', () => {
     expect(entity.notification.errors.size).toBe(0);
     expect(entity.createdAt).toBeInstanceOf(Date);
     expect(entity.updatedAt).toBeInstanceOf(Date);
+  test('should throw error when creating an entity with an invalid UUID', () => {
+    expect(() => new StubEntity({ id: 'invalid-uuid' })).toThrow(InvalidIdError);
   });
 });

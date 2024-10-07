@@ -1,4 +1,5 @@
 import { validate as uuidValidate } from 'uuid';
+import { InvalidIdError } from '../errors';
 import { EntityId } from './entity-id.vo';
 
 describe('EntityId Unit Tests', () => {
@@ -14,10 +15,7 @@ describe('EntityId Unit Tests', () => {
     expect(entityId.hasErrors()).toBeFalsy();
   });
 
-  it('should create an invalid entity id with a given value', () => {
-    const entityId = new EntityId('invalid-id');
-    expect(entityId.value).toBeDefined();
-    expect(entityId.value).toBe('invalid-id');
-    expect(entityId.hasErrors()).toBeTruthy();
+  it('should throw an error when creating an entity id with an invalid value', () => {
+    expect(() => new EntityId('invalid-uuid')).toThrow(InvalidIdError);
   });
 });

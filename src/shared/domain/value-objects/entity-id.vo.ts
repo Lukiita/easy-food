@@ -1,4 +1,5 @@
 import { v4 as uuidv4, validate as uuidValidate } from 'uuid';
+import { InvalidIdError } from '../errors';
 import { ValueObject } from './value-object';
 
 export class EntityId extends ValueObject<string> {
@@ -12,7 +13,7 @@ export class EntityId extends ValueObject<string> {
 
   private validate(): void {
     if (!uuidValidate(this.value)) {
-      this.notification.addError('ID inválido');
+      throw new InvalidIdError(this.value);
     }
   }
 }

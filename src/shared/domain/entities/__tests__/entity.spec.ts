@@ -1,4 +1,5 @@
 import { validate as uuidValidate } from 'uuid';
+import { InvalidIdError } from '../../errors';
 import { BaseEntity } from '../entity';
 
 class StubEntity extends BaseEntity {
@@ -19,6 +20,21 @@ describe('BaseEntity Unit Test', () => {
     expect(entity.notification.errors.size).toBe(0);
     expect(entity.createdAt).toBeInstanceOf(Date);
     expect(entity.updatedAt).toBeInstanceOf(Date);
+    expect(entity.hasError()).toBeFalsy();
+  });
+
+  test('should create an entity with a valid UUID and custom timestamps', () => {
+    const createdAt = new Date('2021-01-01');
+    const updatedAt = new Date('2021-01-02');
+    const id = 'd6688697-edfb-4401-9711-3260c44f6a1c';
+    const entity = new StubEntity({ id, createdAt, updatedAt });
+    expect(entity.id).toBe(id);
+    expect(entity.notification.errors.size).toBe(0);
+    expect(entity.createdAt).toBe(createdAt);
+    expect(entity.updatedAt).toBe(updatedAt);
+    expect(entity.hasError()).toBeFalsy();
+  });
+
   test('should throw error when creating an entity with an invalid UUID', () => {
     expect(() => new StubEntity({ id: 'invalid-uuid' })).toThrow(InvalidIdError);
   });

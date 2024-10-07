@@ -38,5 +38,9 @@ export abstract class BaseEntity<T extends BaseEntityProps = any> {
     return this._updatedAt;
   }
 
+  public hasError(): boolean {
+    return this.notification.hasErrors();
+  }
+
   abstract toJSON(): T;
 }
